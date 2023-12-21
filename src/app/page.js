@@ -16,6 +16,7 @@ export default function Home() {
   const [name, setName] = useState('Dylan');
 
   useEffect(() => {
+    // hitting an api and setting our component with some data
     fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/`)
       .then((res) => res.json())
       .then((data) => {
@@ -34,3 +35,13 @@ export default function Home() {
     </main>
   );
 }
+
+// home page
+// blog
+// games - show all games
+// games{id} - show one game
+// games/search - page to search for games
+// games/result - page that gives results from search
+// games/new - create a new game
+// games{id}/edit - edit a current game
+// games{id} - remove a game
