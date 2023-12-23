@@ -1,6 +1,6 @@
 "use client"
 import { useState, useEffect } from "react";
-import AboutMe from "../components/aboutMe";
+import AboutMe from "./aboutMe";
 
 export default function About() {
     // state is what the data is representing in realtime
