@@ -1,0 +1,45 @@
+
+.mainNav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: goldenrod;
+}
+
+
+.rightLinks{
+
+    padding: 5px;
+    margin: 0 auto;
+    max-width: 500px;
+    /* flex properties */
+    display: flex;
+    gap:  0 15px;
+    align-items: center;
+
+}
+
+.leftLinks{
+
+    padding: 5px;
+    margin: 0 auto;
+    /* flex properties */
+    display: flex;
+    gap: 0 15px;
+    align-items: center;
+
+}
+
+/* .navLinks{
+    margin: 15px;
+    background-color: goldenrod;
+} */
+
+nav .logo{
+    width: 135px;
+
+}
+
+.svgLinks{
+    width: 20px;
+}
