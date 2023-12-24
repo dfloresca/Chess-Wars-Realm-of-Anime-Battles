@@ -1,0 +1,32 @@
+.aboutUs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 25px auto;
+}
+.aboutUs h1 {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.memberBio {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 25px;
+    padding: 30px;
+}
+.memberBio h2 {
+    font-weight: bolder;
+    margin: 10px;
+    flex: 1;
+}
+.memberBio h3 {
+    font-weight: bold;
+    margin: 15px;
+    flex: 1;
+}
+
+.memberBio p {
+    flex: 3;
+}

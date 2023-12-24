@@ -1,6 +1,7 @@
 "use client"
 import { useState, useEffect } from "react";
-import AboutMe from "./aboutMe";
+import Bio from "./bio";
+import styles from "./about.module.css";
 
 export default function About() {
     // state is what the data is representing in realtime
@@ -21,9 +22,9 @@ export default function About() {
     // if (!data) return <p>No data shown...</p>
 
     return (
-        <main>
+        <main className={styles.aboutUs}>
             <h1>About Us</h1>
-            <AboutMe />
+            <Bio />
         </main>
     )
 }
