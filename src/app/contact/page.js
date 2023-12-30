@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import ContactUs from "./contactUs";
 import TechSupport from "./techSupport";
 import Inspiration from "./inspiration";
+import styles from "./contact.module.css"
 export default function Contact() {
     // state is what the data is representing in realtime
     // const [data, setData] = useState(null);
@@ -22,10 +23,15 @@ export default function Contact() {
     // if (!data) return <p>No data shown...</p>
 
     return (
-        <main>
-            <ContactUs />
-            <TechSupport />
-            <Inspiration />
-        </main>
+        <div className={styles.mainContainer}>
+            <h1 className={styles.pageTitle}>Contact Us</h1>
+            <div className={styles.contactUs}>
+                <div className={styles.formPhoto}>
+                    <ContactUs />
+                    <TechSupport />
+                </div>
+                <Inspiration />
+            </div>
+        </div>
     )
 }

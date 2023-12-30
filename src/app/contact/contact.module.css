@@ -1,0 +1,77 @@
+.mainContainer {
+    /* background-image:  url(../../../public/filiipinoflag.jpeg); */
+    flex-direction: column;
+    display: flex;
+}
+
+.contactUs {
+    display: flex;
+    max-width: 75%;
+    margin: 0 auto;
+}
+
+.fullName {
+    display: inline-flex;
+    flex-wrap: wrap;
+    /* align-content: space-between; */
+}
+
+.pageTitle {
+    text-align: center;
+    font-weight: bold;
+    font-size: 45px;
+}
+
+.messageUs {
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.buttons button {
+    padding: 5px 15px;
+    margin: 5px 15px;
+}
+
+.formPhoto {
+    display: flex;
+    flex-direction: column;
+    max-width: 75%;
+}
+
+.techSupport {
+    /* max-width: 50%; */
+    /* background-color: yellow; */
+    display: flex;
+}
+
+.ctoPhoto {
+    width: 65%;
+    padding: 10px;
+}
+
+.inspiration {
+    text-align: center;
+    /* background-color: red; */
+}
+
+.contactForm {
+    display: flex;
+    flex-direction: column;
+    max-width: 90%;
+}
+
+.bio {
+    padding: 10px;
+}
+
+.bio h1 {
+    text-align: center;
+    font-weight: bold;
+}

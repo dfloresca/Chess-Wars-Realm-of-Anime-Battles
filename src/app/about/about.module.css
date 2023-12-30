@@ -4,10 +4,11 @@
     align-items: center;
     margin: 25px auto;
 }
-.aboutUs h1 {
-    font-size: 30px;
+.pageTitle {
+    text-align: center;
     font-weight: bold;
-}
+    font-size: 45px;
+} 
 
 .memberBio {
     display: flex;
