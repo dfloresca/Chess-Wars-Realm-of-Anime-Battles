@@ -1,0 +1,57 @@
+.addToCart svg {
+    width: 25px;
+}
+
+.cardContainer {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin: 0 auto;
+    flex-wrap: wrap;
+    
+}
+
+.cardWrapper {
+    border: 1px solid #dcdcdc;
+    background-color: rgb(177, 102, 109);
+    max-width: 300px;
+    margin: 5px;
+}
+
+.infoWrapper {
+    max-width: 300px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+}
+
+
+@media only screen and (max-width: 1670px) {
+
+    .cardContainer {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media only screen and (max-width: 1300px) {
+
+    .cardContainer {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media only screen and (max-width: 980px) {
+
+    .cardContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    .cardContainer {
+        grid-template-columns: repeat(1, 1fr);
+
+    }
+}

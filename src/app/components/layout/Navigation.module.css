@@ -1,18 +1,164 @@
+.navbar input[type='checkbox'],
+.hamburgerLines {
+    display: none;
+}
 
+.navbar {
+    box-shadow: 0px 5px 10px 0px #aaa;
+    position: fixed;
+    width: 100%;
+    background: #fff;
+    color: #000;
+    opacity: 0.85;
+    height: 50px;
+    z-index: 12;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbarContainer,
+.navbarContainer2 {
+    display: flex;
+    justify-content: space-between;
+    height: 64px;
+    align-items: center;
+}
+
+.menuItems {
+    display: flex;
+}
+
+.menuItems2 {
+    display: flex;
+    padding-right: 10px;
+}
+
+
+.menuItems li,
+.menuItems2 li {
+    list-style: none;
+    margin-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.menuItems a,
+.menuItems2 a {
+    text-decoration: none;
+    color: #444;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+}
+
+.menuItems a:hover,
+.menuItems2 a:hover {
+    color: #c51c1c;
+    transition: color 0.3s ease-in-out;
+}
+
+.logo {
+    max-width: 200px;
+    margin-bottom: 0.5rem;
+}
+
+.svgLinks {
+    width: 25px;
+}
+
+
+@media (max-width: 1000px) {
+
+    .navbarContainer input[type="checkbox"],
+    .navbarContainer .hamburgerLines {
+        display: block;
+    }
+
+    .navbarContainer {
+        display: block;
+        position: relative;
+    }
+
+    .navbarContainer input[type="checkbox"] {
+        position: absolute;
+        display: block;
+        height: 32px;
+        width: 30px;
+        top: 20px;
+        left: 20px;
+        z-index: 5;
+        opacity: 0;
+    }
+
+    .navbarContainer .hamburgerLines {
+        display: block;
+        height: 23px;
+        width: 35px;
+        position: absolute;
+        top: 17px;
+        left: 20px;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .menuItems {
+        display: block;
+        padding-top: 100px;
+        background: #fff;
+        height: 100vh;
+        max-width: 300px;
+        transform: translate(-150%);
+        display: flex;
+        flex-direction: column;
+        margin-left: -40px;
+        padding: 75px 50px;
+        transition: transform 0.5s ease-in-out;
+        box-shadow: 5px 0px 10px 0px #aaa;
+    }
+
+    .navbar .menuItems li {
+        margin-bottom: 1.5rem;
+        font-size: 1.3rem;
+        font-weight: 500;
+    }
+
+    .line {
+        display: block;
+        height: 4px;
+        width: 100%;
+        border-radius: 10px;
+        background: #333;
+    }
+
+    .navbarContainer input[type="checkbox"]:checked~.menuItems {
+        transform: translateX(0);
+    }
+
+    .svgLinks {
+        width: 18px;
+    }
+
+    li.logLinks {
+        font-size: 15px;
+    }
+
+}
+
+/* 
 .mainNav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: goldenrod;
+    background-color: #fdd6a9;
 }
 
 
 .rightLinks{
 
     padding: 5px;
-    margin: 0 auto;
+    margin: 0 25px;
     max-width: 500px;
-    /* flex properties */
     display: flex;
     gap:  0 15px;
     align-items: center;
@@ -22,24 +168,28 @@
 .leftLinks{
 
     padding: 5px;
-    margin: 0 auto;
-    /* flex properties */
+    margin: 0 25px;
     display: flex;
     gap: 0 15px;
     align-items: center;
 
 }
 
-/* .navLinks{
-    margin: 15px;
-    background-color: goldenrod;
-} */
-
 nav .logo{
-    width: 135px;
+    width: 175px;
 
 }
 
 .svgLinks{
     width: 20px;
 }
+
+
+@media only screen and (max-width: 768px) {
+
+    .leftLinks{
+        display: none;
+    }
+
+    
+} */

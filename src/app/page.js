@@ -1,10 +1,13 @@
 'use client';
-import 'bulma/css/bulma.min.css';
+import './global.css';
 import Image from 'next/image';
 import styles from './page.module.css';
 import { useEffect, useState } from 'react';
 import setAuthToken from './utils/setAuthToken';
-import Navigation from './components/layout/navigation';
+import Navigation from './components/layout/Navigation';
+import ProductSection from './components/ProductSection';
+import HPContactUs from './components/HPcontactUs';
+import Footer from './components/layout/Footer';
 
 // we are going to be fetching data from our API and displaying it on
 // the page
@@ -34,7 +37,11 @@ export default function Home() {
     <main className={styles.main}>
       {/* <p>{data.message}</p> */}
       <Navigation />
-      <h1>welcome to the homepage</h1>
+      <img className ={styles.heroImage}src="/heroImg1.png" />
+      <ProductSection />
+      <ProductSection />
+      <HPContactUs />
+      <Footer />
     </main>
   );
 }

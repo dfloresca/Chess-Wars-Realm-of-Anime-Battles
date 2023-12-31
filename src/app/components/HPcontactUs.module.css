@@ -1,0 +1,47 @@
+.mainContainer{
+    background-color: rgba(188, 143, 143, 0.7); 
+    clip-path: polygon(0 50px,100% 0,100% 100%,0 100%);
+
+}
+
+.mainWrapper {
+    max-width: 70%;
+    display: flex;
+    justify-content: center;
+    margin: 30px auto;
+    gap: 25px;
+    padding: 40px 0;
+    align-items: center;
+    flex-wrap: wrap;
+    
+}
+
+
+.mainWrapper img{
+    box-shadow: 19px 15px 0 0 #b1666d;
+    margin-top: 25px;
+}
+
+.imgWrapper {
+    flex: 1;
+    min-width: 100px;
+}
+
+.contentBlurb{
+    max-width: 50%;
+    padding: 15px;
+    flex: 1;
+}
+
+.contactUsBTN {
+    padding: 1rem 1.5rem;
+    margin: 10px 0;
+    border: 1px solid black;
+    transition: background-color 1s ease-in-out;
+    transition: color .5s ease-in-out;
+}
+
+.contactUsBTN:hover{
+    background-color:#b1666d;
+    color: white;
+}
