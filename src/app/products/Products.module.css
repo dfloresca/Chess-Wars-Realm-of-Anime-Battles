@@ -1,0 +1,24 @@
+.h1 {
+    padding-top: 65px;
+    margin-bottom: 25px;
+    text-align: center;
+
+}
+.miniFilter {
+    list-style-type: none;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.listFilter{
+    border: 1px solid #b1666d;
+    border-radius: 1em;
+    padding: .5rem 1.5rem;
+    transition: background-color .5s ease-in-out;
+}
+
+.listFilter:hover{
+    background-color: #b1666d;
+    color: white;
+}
