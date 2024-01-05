@@ -1,6 +1,6 @@
 "use client"
 import { useState, useEffect } from "react";
-import Bio from "./bio";
+import Bio from "../components/bio";
 import styles from "./about.module.css";
 
 export default function About() {

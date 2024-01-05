@@ -2,12 +2,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 25px auto;
+    /* margin: 25px auto; */
 }
 .pageTitle {
     text-align: center;
     font-weight: bold;
     font-size: 45px;
+    padding: 65px;
 } 
 
 .memberBio {
@@ -30,4 +31,9 @@
 
 .memberBio p {
     flex: 3;
+}
+
+.memberBio img {
+    height: 250px;
+    width: 250px;
 }

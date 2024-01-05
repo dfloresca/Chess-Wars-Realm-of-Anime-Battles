@@ -1,5 +1,5 @@
 import Image from "next/image"
-import styles from './about.module.css';
+import styles from '../about/about.module.css';
 
 export default function MemberBio({ name, image, role, bio }) {
     return(
