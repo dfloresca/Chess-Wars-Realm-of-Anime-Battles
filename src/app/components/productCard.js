@@ -10,8 +10,8 @@ const ProductCard = ({ item }) => {
                 <img src={item.image} alt="" />
                 <div className={styles.infoWrapper}>
                     <div className={styles.productInfo}>
-                        <h4>{item.name}</h4>
-                        <p>{item.price}</p>
+                        <p className={styles.sudoTitle}>{item.name}</p>
+                        <p>{item.price} USD</p>
                     </div>
                     <div className={styles.addToCart}>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">

@@ -34,6 +34,11 @@
     font-size: 13px;
 }
 
+.contentBlurb h2{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
 .svgDivider{
     position: absolute;
     top: 0;

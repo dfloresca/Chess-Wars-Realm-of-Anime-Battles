@@ -34,3 +34,8 @@
     height: 300px;
     object-fit: cover;
 }
+
+.sudoTitle {
+    font-size: 14px;
+    font-weight: 600;
+}
