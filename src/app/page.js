@@ -1,9 +1,9 @@
 'use client';
-import 'bulma/css/bulma.min.css';
 import Image from 'next/image';
 import styles from './page.module.css';
-import { useEffect, useState } from 'react';
-import setAuthToken from './utils/setAuthToken';
+// import { useEffect, useState } from 'react';
+// import setAuthToken from './utils/setAuthToken';
+
 
 // we are going to be fetching data from our API and displaying it on
 // the page
@@ -36,13 +36,3 @@ export default function Home() {
     </main>
   );
 }
-
-// home page
-// blog
-// games - show all games
-// games{id} - show one game
-// games/search - page to search for games
-// games/result - page that gives results from search
-// games/new - create a new game
-// games{id}/edit - edit a current game
-// games{id} - remove a game

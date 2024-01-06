@@ -4,7 +4,7 @@ export default function ContactUs() {
     return (
         <div className={styles.formDiv}>
             <h1 className={styles.messageUs}>Send us a Message</h1>
-            <form className={styles.contactForm}>
+            {/* <form className={styles.contactForm}>
                 <div className={styles.fullName}>
                     <label for="firstName">First Name</label>
                     <input name="firstName" type="text" id="firstName" />
@@ -19,7 +19,7 @@ export default function ContactUs() {
                     <button type="submit" >Send</button>
                     <button type='reset' >Clear</button>
                 </div>
-            </form>
+            </form> */}
         </div>
     )
 }
