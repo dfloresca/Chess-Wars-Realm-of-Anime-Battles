@@ -3,6 +3,7 @@ import Image from 'next/image';
 import styles from './page.module.css';
 import SectionOne from './components/SectionOne';
 import SectionTwo from './components/SectionTwo';
+import ProductSection from './components/productSection';
 // import { useEffect, useState } from 'react';
 // import setAuthToken from './utils/setAuthToken';
 
@@ -35,6 +36,7 @@ export default function Home() {
     <main className={styles.main}>
       {/* <p>{data.message}</p> */}
       <SectionOne />
+      <ProductSection />
       <SectionTwo />
 
     </main>

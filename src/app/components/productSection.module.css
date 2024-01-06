@@ -3,6 +3,7 @@
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     margin: 25px auto;
     flex-wrap: wrap;
+    max-width: 70%;
     
 }
 
@@ -12,7 +13,30 @@
     /* padding-right: 35px; */
 }
 
+.h1 {
+    padding-top: 65px;
+    margin-bottom: 25px;
+    text-align: center;
 
+}
+.miniFilter {
+    list-style-type: none;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.listFilter{
+    border: 1px solid #b1666d;
+    border-radius: 1em;
+    padding: .5rem 1.5rem;
+    transition: background-color .5s ease-in-out;
+}
+
+.listFilter:hover{
+    background-color: #b1666d;
+    color: white;
+}
 @media only screen and (max-width: 600px) {
 
     .sectionWrapper {

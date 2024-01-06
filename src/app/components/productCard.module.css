@@ -28,3 +28,9 @@
 .iconLink{
     font-size: 25px;
 }
+
+.cardWrapper img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
