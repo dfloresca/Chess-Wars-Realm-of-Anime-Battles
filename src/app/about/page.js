@@ -1,5 +1,5 @@
 "use client"
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import Bio from "../components/bio";
 import styles from "./about.module.css";
 

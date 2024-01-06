@@ -1,5 +1,5 @@
 "use client"
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import ContactUs from "../components/contactUs";
 import TechSupport from "../components/techSupport";
 import Inspiration from "../components/inspiration";
