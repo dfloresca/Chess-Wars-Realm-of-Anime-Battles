@@ -1,4 +1,4 @@
-/* .navbar input[type='checkbox'],
+.navbar input[type='checkbox'],
 .hamburgerLines {
     display: none;
 }
@@ -57,15 +57,16 @@
 }
 
 .logo {
-    max-width: 200px;
+    width: 200px;
+    height: auto;
     margin-bottom: 0.5rem;
 }
 
-li.svgLinks {
-    font-size: 18px;
+li.menuLinks {
+    font-size: 15px;
 }
 
-.svgLinks:first-child span {
+menuItems2.menuLinks:nth-child(2) {
     position: absolute;
     padding: 5px 6px;
     background-color: red;
@@ -149,4 +150,4 @@ li.svgLinks {
         font-size: 12px;
     }
 
-} */
+}

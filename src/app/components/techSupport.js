@@ -1,5 +1,5 @@
 import Image from "next/image"
-import styles from "./contact.module.css"
+import styles from "../contact/contact.module.css";
 
 export default function TechSupport() {
     return (
