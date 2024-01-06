@@ -1,0 +1,30 @@
+.addToCart svg {
+    width: 25px;
+}
+
+.cardContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    margin: 0 auto;
+    flex-wrap: wrap;
+    
+}
+
+.cardWrapper {
+    border: 1px solid #dcdcdc;
+    background-color: rgb(177, 102, 109);
+    max-width: 300px;
+    margin: 5px;
+}
+
+.infoWrapper {
+    max-width: 300px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+}
+.iconLink{
+    font-size: 25px;
+}
