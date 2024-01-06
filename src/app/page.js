@@ -1,6 +1,7 @@
 'use client';
 import Image from 'next/image';
 import styles from './page.module.css';
+import SectionOne from './components/SectionOne';
 // import { useEffect, useState } from 'react';
 // import setAuthToken from './utils/setAuthToken';
 
@@ -32,7 +33,8 @@ export default function Home() {
   return (
     <main className={styles.main}>
       {/* <p>{data.message}</p> */}
-      <p>this is a test</p>
+      <SectionOne />
+      <p>welcome</p>
     </main>
   );
 }

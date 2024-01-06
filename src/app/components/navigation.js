@@ -22,7 +22,7 @@ export default function Navigation() {
                         <li className={styles.menuLinks}><Link href="/">Home</Link></li>
                         <li className={styles.menuLinks}><Link href="/about">About</Link></li>
                         <li className={styles.menuLinks}><Link href="/contact">Contact</Link></li>
-                        <li className={styles.menuLinks}><Link href="/profile"></Link></li>
+                        <li className={styles.menuLinks}><Link href="/profile">Profile</Link></li>
 
                     </ul>
                 </div>
