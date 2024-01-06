@@ -8,7 +8,7 @@ const NewUser = () => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
-    const [jobTitle, setJobTitle] = useState('');
+    const [userName, setuserName] = useState('');
     const [number, setNumber] = useState('');
 
     const [redirect, setRedirect] = useState(false);
@@ -26,18 +26,18 @@ const NewUser = () => {
         setEmail(e.target.value);
     };
 
-    const handleJobTitle = (e) => {
-        setJobTitle(e.target.value);
+    const handleuserName = (e) => {
+        setuserName(e.target.value);
     };
 
-    const handleNumber = (e) => {
-        setNumber(e.target.value);
-    };
+    // const handleNumber = (e) => {
+    //     setNumber(e.target.value);
+    // };
 
     const handleSubmit = (e) => {
         e.preventDefault(); // at the beginning of a submit function
 
-        const newUser = { firstName, lastName, email, jobTitle, number };
+        const newUser = { firstName, lastName, email, userName };
         axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/new`, newUser)
             .then(response => {
                 console.log(response);
@@ -69,13 +69,13 @@ const NewUser = () => {
                             <input type="email" name="email" value={email} onChange={handleEmail} className="form-control" />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="jobTitle">Job Title</label>
-                            <input type="text" name="jobTitle" value={jobTitle} onChange={handleJobTitle} className="form-control" />
+                            <label htmlFor="userName">User Name</label>
+                            <input type="text" name="userName" value={userName} onChange={handleuserName} className="form-control" />
                         </div>
-                        <div className="form-group">
+                        {/* <div className="form-group">
                             <label htmlFor="number"></label>
                             <input type="text" name="number" value={number} onChange={handleNumber} className="form-control" />
-                        </div>
+                        </div> */}
                         <button type="submit" className="btn btn-primary float-right">Submit</button>
                     </form>
                 </div>

@@ -13,12 +13,12 @@ const Signup = () => {
 	const [lastName, setLastName] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-	const [jobTitle, setJobTitle] = useState('');
-	const [number, setNumber] = useState('');
-	const [streetAddress, setStreetAddress] = useState('');
-	const [city, setCity] = useState('');
-	const [state, setState] = useState('');
-	const [zipCode, setZipCode] = useState('');
+	const [userName, setuserName] = useState('');
+	// const [number, setNumber] = useState('');
+	// const [streetAddress, setStreetAddress] = useState('');
+	// const [city, setCity] = useState('');
+	// const [state, setState] = useState('');
+	// const [zipCode, setZipCode] = useState('');
 	const [error, setError] = useState(false);
 
 	// create the 
@@ -42,35 +42,35 @@ const Signup = () => {
 		setPassword(e.target.value);
 	};
 
-	const handleJobTitle = (e) => {
+	const handleuserName = (e) => {
 		// fill in code
-		setJobTitle(e.target.value);
+		setuserName(e.target.value);
 	};
 
-	const handleNumber = (e) => {
-		// fill in code
-		setNumber(e.target.value);
-	};
+	// const handleNumber = (e) => {
+	// 	// fill in code
+	// 	setNumber(e.target.value);
+	// };
 
-	const handleStreetAddress = (e) => {
-		// fill in code
-		setStreetAddress(e.target.value);
-	};
+	// const handleStreetAddress = (e) => {
+	// 	// fill in code
+	// 	setStreetAddress(e.target.value);
+	// };
 
-	const handleCity = (e) => {
-		// fill in code
-		setCity(e.target.value);
-	};
+	// const handleCity = (e) => {
+	// 	// fill in code
+	// 	setCity(e.target.value);
+	// };
 
-	const handleState = (e) => {
-		// fill in code
-		setState(e.target.value);
-	};
+	// const handleState = (e) => {
+	// 	// fill in code
+	// 	setState(e.target.value);
+	// };
 
-	const handleZipCode = (e) => {
-		// fill in code
-		setZipCode(e.target.value);
-	};
+	// const handleZipCode = (e) => {
+	// 	// fill in code
+	// 	setZipCode(e.target.value);
+	// };
 
 	const handleSubmit = (e) => {
 		e.preventDefault(); // at the beginning of a submit function
@@ -79,13 +79,13 @@ const Signup = () => {
 			firstName,
 			lastName,
 			email,
-			jobTitle,
-			number,
+			userName,
+			// number,
 			password,
-			streetAddress,
-			city,
-			state,
-			zipCode
+			// streetAddress,
+			// city,
+			// state,
+			// zipCode
 		};
 		axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/signup`, newUser)
 			.then(response => {
@@ -154,28 +154,28 @@ const Signup = () => {
 									</div>
 									<div className="input-group mb-3">
 										<span className="input-group-addon"><i className="fa fa-address-book"></i></span>
-										<input type="text" className="form-control" placeholder="Job Title" value={jobTitle} onChange={handleJobTitle} />
+										<input type="text" className="form-control" placeholder="User Name" value={userName} onChange={handleuserName} />
 									</div>
-									<div className="input-group mb-3">
+									{/* <div className="input-group mb-3">
 										<span className="input-group-addon"><i className="fa fa-address-book"></i></span>
 										<input type="text" className="form-control" placeholder="Phone Number" value={number} onChange={handleNumber} />
-									</div>
-									<div className="input-group mb-3">
+									</div> */}
+									{/* <div className="input-group mb-3">
 										<span className="input-group-addon"><i className="fa fa-address-book"></i></span>
 										<input type="text" className="form-control" placeholder="Street Address" value={streetAddress} onChange={handleStreetAddress} />
-									</div>
-									<div className="input-group mb-3">
+									</div> */}
+									{/* <div className="input-group mb-3">
 										<span className="input-group-addon"><i className="fa fa-address-book"></i></span>
 										<input type="text" className="form-control" placeholder="City" value={city} onChange={handleCity} />
-									</div>
-									<div className="input-group mb-3">
+									</div> */}
+									{/* <div className="input-group mb-3">
 										<span className="input-group-addon"><i className="fa fa-address-book"></i></span>
 										<input type="text" className="form-control" placeholder="State" value={state} onChange={handleState} />
-									</div>
-									<div className="input-group mb-3">
+									</div> */}
+									{/* <div className="input-group mb-3">
 										<span className="input-group-addon"><i className="fa fa-address-book"></i></span>
 										<input type="text" className="form-control" placeholder="Zip Code" value={zipCode} onChange={handleZipCode} />
-									</div>
+									</div> */}
 									<div className="row">
 										<div className="col-6">
 											<button type="submit" className="btn btn-primary px-4">Sign Up</button>

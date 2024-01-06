@@ -9,7 +9,7 @@ export default function Inspiration() {
                 Family fun
             </h2>
             <p>
-                Here's a family having fun at a party! 
+                Here is a family having fun at a party! 
             </p>
         </div>
     )
