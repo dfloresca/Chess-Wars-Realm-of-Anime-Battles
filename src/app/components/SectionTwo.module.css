@@ -1,6 +1,7 @@
 .mainContainer{
-    background-color: rgba(188, 143, 143, 0.7); 
-    clip-path: polygon(0 50px,100% 0,100% 100%,0 100%);
+    background-color: #f2d3b2;
+    /* clip-path: polygon(0 50px,100% 0,100% 100%,0 100%); */
+    position: relative;
 
 }
 
@@ -19,7 +20,7 @@
 
 .mainWrapper img{
     box-shadow: 19px 15px 0 0 #b1666d;
-    margin-top: 25px;
+    margin-top: 85px;
 }
 
 .imgWrapper {
@@ -29,19 +30,21 @@
 
 .contentBlurb{
     max-width: 40%;
+    line-height: 1.5;
+    font-size: 13px;
 }
 
+.svgDivider{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+
+}
 .contactUsBTN {
-    padding: 1rem 1.5rem;
-    margin: 10px 0;
-    border: 1px solid black;
-    transition: background-color 1s ease-in-out;
-    transition: color .5s ease-in-out;
-}
-
-.contactUsBTN:hover{
-    background-color:#b1666d;
-    color: white;
+    margin: 10px;
 }
 
 @media (max-width: 1000px) {

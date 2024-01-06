@@ -66,7 +66,7 @@
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 530px) {
 
     .heroContent{
         position: absolute;
@@ -81,6 +81,7 @@
     .heroImg {
         background-color: rgba(255, 255, 255, 0.5);
         height: 300px;
+        background-position: 45%;
 
     }
     

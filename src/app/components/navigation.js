@@ -27,10 +27,11 @@ export default function Navigation() {
                     </ul>
                 </div>
                 <Link href="/"><Image className={styles.logo} src='/navLogo.png' width="300" height="74" alt="Floresca Threads" priority={true} /></Link>
+                <Link href="/"><Image className={styles.logoSmall} src='/navLogoInitials.png' width="65" height="45" alt="Floresca Threads" priority={true} /></Link>
                 <div className={styles.navbarContainer2}>
                     <ul className={styles.menuItems2}>
                         <li className={styles.menuLinks}><Link href='/cart'>Cart</Link></li>
-                        <li className={styles.menuLinks}> 0 </li>
+                        <li className={`${styles.menuLinks} ${styles.cartLink}`}> 0 </li>
                         <li className={styles.menuLinks}>Login</li>
 
                     </ul>
