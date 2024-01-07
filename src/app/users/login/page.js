@@ -34,18 +34,22 @@ export default function Login() {
                 localStorage.setItem('expiration', response.data.userData.exp);
                 setAuthToken(response.data.token);
                 let decoded = jwtDecode(response.data.token);
+                console.log('redirecting')
 				setRedirect(true);
 			})
 			.catch(error => {
-				if (error.response.data.message === 'Email already exists') {
+				if (error.response.data.message === 'invalid credentials') {
 					console.log('===> Error in Signup', error.response.data.message);
 					setError(true);
 				}
 			});
 
 	};
+    
 
-    if (redirect) { router.push('/users/profile'); }
+    if (redirect) { 
+        console.log('going to users/profile');
+        router.push('/contact'); }
     if (error) {
 		return (
 			<div>

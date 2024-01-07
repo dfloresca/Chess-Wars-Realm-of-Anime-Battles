@@ -12,37 +12,40 @@ export default function Profile() {
     const router = useRouter();
     const [data, setData] = useState(null);
     const [isLoading, setLoading] = useState(true);
-
-    const expirationTime = new Date(parseInt(localStorage.getItem('expiration')) * 1000);
-    let currentTime = Date.now();
+// console.log(localStorage);
+    // const expirationTime = new Date(parseInt(localStorage.getItem('expiration')) * 1000);
+    // let currentTime = Date.now();
 
     // make a condition that compares exp and current time
-    if (currentTime >= expirationTime) {
-        handleLogout();
-        alert('Session has ended. Please login to continue.');
-        router.push('/users/login');
-    }
+    // if (currentTime >= expirationTime) {
+    //     handleLogout();
+    //     alert('Session has ended. Please login to continue.');
+    //     router.push('/users/login');
+    // }
 
     useEffect(() => {
         setAuthToken(localStorage.getItem('jwtToken'));
         if (localStorage.getItem('jwtToken')) {
-            axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/email/${localStorage.getItem('email')}`)
-                .then((response) => {
-                    // data is an object
+        //     axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/email/${localStorage.getItem('email')}`, { headers:{
+        //         Authorization:localStorage.getItem('jwtToken')    
+        //     }} )
+        //         .then((response) => {
+        //             // data is an object
                     let userData = jwtDecode(localStorage.getItem('jwtToken'));
                     if (userData.email === localStorage.getItem('email')) {
-                        setData(response.data.user[0]);
+                        setData(userData);
                         setLoading(false);
                     } else {
                         router.push('/users/login');
                     }
-
-                })
-                .catch((error) => {
-                    console.log(error);
-                    router.push('/users/login');
-                });
+// 
+                // })
+                // .catch((error) => {
+                //     console.log(error);
+                //     router.push('/users/login');
+                // });
         } else {
+            console.log('checking for snacks')
             router.push('/users/login');
         }
 
@@ -78,8 +81,7 @@ export default function Profile() {
                                     <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" className="rounded-circle" width="150" />
                                     <div className="mt-3">
                                         <h4>{data.firstName} {data.lastName}</h4>
-                                        <p className="text-secondary mb-1">{data.jobTitle}</p>
-                                        <p className="text-muted font-size-sm">{data.address.city}, {data.address.state}</p>
+                                        <p className="text-secondary mb-1">{data.userName}</p>
                                         <button className="btn btn-primary">Follow</button>
                                         <button className="btn btn-outline-primary">Message</button>
                                     </div>
@@ -129,35 +131,6 @@ export default function Profile() {
                                     </div>
                                     <div className="col-sm-9 text-secondary">
                                         {data.email}
-                                    </div>
-                                </div>
-                                <hr />
-                                <div className="row">
-                                    <div className="col-sm-3">
-                                        <h6 className="mb-0">Phone</h6>
-                                    </div>
-                                    <div className="col-sm-9 text-secondary">
-                                        {data.number}
-                                    </div>
-                                </div>
-                                <hr />
-                                <div className="row">
-                                    <div className="col-sm-3">
-                                        <h6 className="mb-0">Mobile</h6>
-                                    </div>
-                                    <div className="col-sm-9 text-secondary">
-                                        {data.number}
-                                    </div>
-                                </div>
-                                <hr />
-                                <div className="row">
-                                    <div className="col-sm-3">
-                                        <h6 className="mb-0">Address</h6>
-                                    </div>
-                                    <div className="col-sm-9 text-secondary">
-                                        {data.address.streetAddress}
-                                        <br />
-                                        {data.address.city}, {data.address.state} {data.address.zipCode}
                                     </div>
                                 </div>
                                 <hr />

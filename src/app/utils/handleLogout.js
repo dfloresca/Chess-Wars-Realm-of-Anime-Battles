@@ -1,4 +1,5 @@
 const handleLogout = () => {
+  console.log('logging out')
     if (localStorage.getItem('jwtToken')) {
       // remove token for localStorage
       localStorage.removeItem('jwtToken');
