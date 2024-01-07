@@ -1,11 +1,11 @@
 'use client';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from './ProductSection.module.css';
 import ProductSectionAll from './productSectionAll';
 
 
-export default function products() {
+export default function Products() {
     const [selectedCategory, setSelectedCategory] = useState('All');
     const [allItems, setAllItems] = useState([]); // Define allItems state
     const [filteredItems, setFilteredItems] = useState([]); // Define filteredItems state
