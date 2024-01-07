@@ -2,8 +2,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Navigation.module.css';
-import { useState, useContext } from 'react';
-import CartContext from '../store/cartContext';
+import { useContext } from 'react';
+import { CartContext } from '../store/cartContext';
 
 export default function Navigation() {
 const cartCtx = useContext(CartContext);

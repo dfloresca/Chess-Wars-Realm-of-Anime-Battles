@@ -1,10 +1,11 @@
+'use client';
 import React, { useContext } from 'react';
 import { CartContext } from '../store/cartContext';
 import withCartContext from '../withCartContext';
 
 
 function Cart() {
-    const cartCtx = React.useContext(CartContext);
+    const cartCtx = useContext(CartContext);
     console.log('Rendering Cart with context:', cartCtx);
     return (
         <div>

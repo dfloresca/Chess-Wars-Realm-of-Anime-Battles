@@ -1,62 +1,48 @@
 'use client';
-import { createContext, useReducer, useState, useEffect } from 'react';
+import { useReducer, useState, useEffect } from 'react';
 import { useCallback } from 'react';
+import { createContext } from 'react';
 
-let CartContext = createContext(
-    {
-        items: [],
-        addItem: (item) => { },  // We just need the function signature here
-        removeItem: (id) => { }
-    }
-);
+export const CartContext = createContext({
+    items: [],
+    totalAmount: 0,
+    addItem: (item) => { },
+    removeItem: (id) => { }
+});
 
 function cartReducer(state, action) {
-    let updatedItems = [...state.items]; // Declare updatedItems at the top
-    let existingCartItemIndex; // Declare existingCartItemIndex at the top
+    console.log('Current state:', state);
+    console.log('Current action:', action);
+    let updatedItems = [...state.items];
+    let existingCartItemIndex;
     let existingItem;
     let updatedItem;
 
     if (action.type === 'ADD_ITEM') {
-        existingCartItemIndex = state.items.findIndex(item => item.id === action.item.id);
+        existingCartItemIndex = state.items.findIndex(item => item._id === action.item._id);
+        existingItem = state.items[existingCartItemIndex];
         const quantityToAdd = Number(action.item.quantity) || 1;
-        if (existingCartItemIndex > -1) {
-            existingItem = state.items[existingCartItemIndex];
-            // Ensure that action.item.quantity is a number
-
+        if (existingItem) {
             updatedItem = {
                 ...existingItem,
                 quantity: existingItem.quantity + quantityToAdd
             };
             updatedItems[existingCartItemIndex] = updatedItem;
         } else {
-            updatedItems.push({ ...action.item, quantity: 1 });
+            updatedItems = state.items.concat({ ...action.item, quantity: quantityToAdd });
         }
-        return { ...state, items: updatedItems, totalAmount: state.totalAmount + quantityToAdd };
-    }
-
-    if (action.type === 'REMOVE_ITEM') {
-        existingCartItemIndex = state.items.findIndex(item => item.id === action.id);
-        existingItem = state.items[existingCartItemIndex];
-        updatedItems = [...state.items];
-
-        if (existingItem.quantity === 1) {
-            updatedItems.splice(existingCartItemIndex, 1);
-        } else {
-            updatedItem = { ...existingItem, quantity: existingItem.quantity - 1 };
-            updatedItems[existingCartItemIndex] = updatedItem;
-        }
-
-        return { ...state, items: updatedItems, totalAmount: state.totalAmount - 1 };
+        const newTotalAmount = (state.totalAmount + action.item.price * quantityToAdd).toFixed(2);
+        return {
+            items: updatedItems,
+            totalAmount: parseFloat(newTotalAmount)
+        };
     }
 
     return state;
 }
 
-
-
 export function CartContextProvider({ children }) {
-    let [cart, dispatchCartAction] = useReducer(cartReducer, { items: [] });
-    let [cartContext, setCartContext] = useState({ items: [], addItem: () => { }, removeItem: () => { } });
+    let [cart, dispatchCartAction] = useReducer(cartReducer, { items: [], totalAmount: 0 });
 
     const handleAddToCart = useCallback((item) => {
         console.log('Adding item:', item);
@@ -67,25 +53,17 @@ export function CartContextProvider({ children }) {
         dispatchCartAction({ type: 'REMOVE_ITEM', id: id });
     }, []);
 
-    useEffect(() => {
-        if (cart) {
-            setCartContext({
-                items: cart.items,
-                totalAmount: cart.totalAmount,
-                addItem: handleAddToCart,
-                removeItem: removeItemHandler
-            });
-        }
-    }, [cart, handleAddToCart, removeItemHandler]);
+    let contextValue = {
+        items: cart.items,
+        totalAmount: cart.totalAmount,
+        addItem: handleAddToCart,
+        removeItem: removeItemHandler
+    };
 
     return (
-        <CartContext.Provider value={cartContext}>
+        <CartContext.Provider value={contextValue}>
+            {console.log('Current context value:', contextValue)}
             {children}
         </CartContext.Provider>
     );
 }
-
-
-
-
-export default CartContext;

@@ -1,6 +1,6 @@
 import styles from './ProductCard.module.css';
 import { useState, useContext } from 'react';
-import  CartContext  from '../store/cartContext';
+import { CartContext } from '../store/cartContext';
 
 const ProductCard = ({ item }) => {
     const cartCtx = useContext(CartContext);
