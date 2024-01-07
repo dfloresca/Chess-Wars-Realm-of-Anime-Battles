@@ -26,7 +26,7 @@ export default function EditUser() {
 	const [state, setState] = useState('');
 	const [zipCode, setZipCode] = useState('');
 
-	setAuthToken(localStorage.getItem('jwtToken'));
+	// setAuthToken(localStorage.getItem('jwtToken'));
 
 	// if (typeof window !== 'undefined' && window.localStorage ) {
     //     console.log('Currently on Client side');
@@ -99,12 +99,7 @@ export default function EditUser() {
 			firstName,
 			lastName,
 			email,
-			number,
-			jobTitle,
-			streetAddress,
-			city,
-			state,
-			zipCode
+			userName
 		};
 		axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/${data._id}`, updateUserObject)
 			.then(response => {
@@ -119,35 +114,29 @@ export default function EditUser() {
 
 	};
 
-	useEffect(() => {
-		if (localStorage.getItem('jwtToken')) {
-			axois.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/email/${localStorage.getItem('email')}`)
-				.then((response) => {
-					// data is an object
-					let userData = jwtDecode(localStorage.getItem('jwtToken'));
+	// useEffect(() => {
+	// 	if (localStorage.getItem('jwtToken')) {
+	// 		axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/email/${localStorage.getItem('email')}`)
+	// 			.then((response) => {
+	// 				// data is an object
+	// 				let userData = jwtDecode(localStorage.getItem('jwtToken'));
 
-					if (response.data.user[0].email === userData.email) {
-						setData(response.data.user[0]);
-						setFirstName(response.data.user[0].firstName);
-						setLastName(response.data.user[0].lastName);
-						setEmail(response.data.user[0].email);
-						setJobTitle(response.data.user[0].jobTitle);
-						setNumber(response.data.user[0].number);
-						setStreetAddress(response.data.user[0].address.streetAddress);
-						setCity(response.data.user[0].address.city);
-						setState(response.data.user[0].address.state);
-						setZipCode(response.data.user[0].address.zipCode);
-						setLoading(false);
-					}
-				})
-				.catch((error) => {
-					console.log(error);
-					router.push('/users/login');
-				});
-		} else {
-			router.push('/users/login');
-		}
-	}, []);
+	// 				if (response.data.user[0].email === userData.email) {
+	// 					setData(response.data.user[0]);
+	// 					setFirstName(response.data.user[0].firstName);
+	// 					setLastName(response.data.user[0].lastName);
+	// 					setEmail(response.data.user[0].email);
+	// 					setLoading(false);
+	// 				}
+	// 			})
+	// 			.catch((error) => {
+	// 				console.log(error);
+	// 				router.push('/users/login');
+	// 			});
+	// 	} else {
+	// 		router.push('/users/login');
+	// 	}
+	// }, []);
 
 	if (isLoading) return <p>Loading...</p>;
 	if (!data) return <p>No data shown...</p>;
