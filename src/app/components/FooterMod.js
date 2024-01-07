@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from './FooterMod.module.css';
+import styles from '../FooterMod.module.css';
 import { FaTwitter } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";

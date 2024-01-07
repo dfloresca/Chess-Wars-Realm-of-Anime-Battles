@@ -1,4 +1,4 @@
-import styles from "./SectionOne.module.css"
+import styles from "../SectionOne.module.css"
 
 
 export default function SectionOne() {
