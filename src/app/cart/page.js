@@ -7,13 +7,15 @@ import withCartContext from '../withCartContext';
 function Cart() {
     const cartCtx = useContext(CartContext);
     console.log('Rendering Cart with context:', cartCtx);
+    const isCartEmpty = !cartCtx.items || cartCtx.items.length === 0;
     return (
         <div>
             <h2>Your Cart</h2>
-            {cartCtx.items.length === 0 && <p>No items in cart.</p>}
+            {isCartEmpty && <p>No items in cart.</p>}
             <ul>
-                {cartCtx.items.map(item => (
+                {cartCtx.items && cartCtx.items.map(item => (
                     <li key={item._id}>
+                        <p><img src={item.image} width="100" /></p>
                         {item.name} - Quantity: {item.quantity}
                     </li>
                 ))}
@@ -21,5 +23,4 @@ function Cart() {
         </div>
     );
 }
-
 export default withCartContext(Cart);
