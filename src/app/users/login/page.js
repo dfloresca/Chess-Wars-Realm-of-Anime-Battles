@@ -49,7 +49,7 @@ export default function Login() {
 
     if (redirect) { 
         console.log('going to users/profile');
-        router.push('/contact'); }
+        router.push('/users/profile'); }
     if (error) {
 		return (
 			<div>
