@@ -8,6 +8,14 @@ h1 {
     color: chartreuse;
 }
 
+.profile {
+    border: 2px solid rgb(12, 11, 11);
+    width: 400px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+
 .gradient-custom {
     /* fallback for old browsers */
     background: #6a11cb;

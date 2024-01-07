@@ -28,7 +28,7 @@ export default function EditUser() {
 
 	setAuthToken(localStorage.getItem('jwtToken'));
 
-	if (typeof window !== 'undefined') {
+	if (typeof window !== 'undefined' && window.localStorage ) {
         console.log('Currently on Client side');
         const expirationTime = new Date(parseInt(localStorage.getItem('expiration')) * 1000);
         let currentTime = Date.now();

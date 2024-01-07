@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import handleLogout from '@/app/utils/handleLogout';
 import axios from 'axios';
 import setAuthToken from '@/app/utils/setAuthToken';
-import styles from './profile.module.css'
+import styles from '../../profile.module.css'
 export default function Profile() {
     // state is what the data is representing in realtime
     const router = useRouter();
