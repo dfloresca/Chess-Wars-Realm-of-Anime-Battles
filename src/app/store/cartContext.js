@@ -38,6 +38,45 @@ function cartReducer(state, action) {
         };
     }
 
+    if (action.type === 'INCREASE_QUANTITY') {
+        existingCartItemIndex = state.items.findIndex(item => item._id === action.id);
+        existingItem = state.items[existingCartItemIndex];
+        updatedItem = {
+            ...existingItem,
+            quantity: existingItem.quantity + 1
+        };
+        updatedItems[existingCartItemIndex] = updatedItem;
+        const newTotalAmount = (state.totalAmount + existingItem.price).toFixed(2);
+        return {
+            items: updatedItems,
+            totalAmount: parseFloat(newTotalAmount)
+        };
+    }
+
+    if (action.type === 'DECREASE_QUANTITY') {
+        existingCartItemIndex = state.items.findIndex(item => item._id === action.id);
+        existingItem = state.items[existingCartItemIndex];
+        if (existingItem.quantity > 1) {
+            updatedItem = {
+                ...existingItem,
+                quantity: existingItem.quantity - 1
+            };
+            updatedItems[existingCartItemIndex] = updatedItem;
+            const newTotalAmount = (state.totalAmount - existingItem.price).toFixed(2);
+            return {
+                items: updatedItems,
+                totalAmount: parseFloat(newTotalAmount)
+            };
+        } else {
+            updatedItems = state.items.filter(item => item._id !== action.id);
+            const newTotalAmount = (state.totalAmount - existingItem.price).toFixed(2);
+            return {
+                items: updatedItems,
+                totalAmount: parseFloat(newTotalAmount)
+            };
+        }
+    }
+
     return state;
 }
 
@@ -53,11 +92,21 @@ export function CartContextProvider({ children }) {
         dispatchCartAction({ type: 'REMOVE_ITEM', id: id });
     }, []);
 
+    const increaseQuantity = useCallback((id) => {
+        dispatchCartAction({ type: 'INCREASE_QUANTITY', id: id });
+    }, []);
+
+    const decreaseQuantity = useCallback((id) => {
+        dispatchCartAction({ type: 'DECREASE_QUANTITY', id: id });
+    }, []);
+
     let contextValue = {
         items: cart.items,
         totalAmount: cart.totalAmount,
         addItem: handleAddToCart,
-        removeItem: removeItemHandler
+        removeItem: removeItemHandler,
+        increaseQuantity: increaseQuantity,
+        decreaseQuantity: decreaseQuantity
     };
 
     return (
