@@ -2,7 +2,7 @@ import './globals.css'
 import { Inter, Satisfy } from 'next/font/google'
 import Navigation from './components/navigation';
 import FooterMod from './components/FooterMod';
-import Script from 'next/script';
+import { CartContextProvider } from './store/cartContext';
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -17,9 +17,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
+        <CartContextProvider>
         <Navigation />
         {children}
         <FooterMod />
+        </CartContextProvider>
       </body>
     </html>
   )

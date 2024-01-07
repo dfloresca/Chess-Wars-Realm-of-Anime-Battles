@@ -1,9 +1,14 @@
+'use client';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Navigation.module.css';
+import { useState, useContext } from 'react';
+import CartContext from '../store/cartContext';
 
 export default function Navigation() {
+const cartCtx = useContext(CartContext);
 
+const totalCartItems = cartCtx.items.reduce((total, item) => total + item.quantity, 0);
 
 
     return (
@@ -31,7 +36,7 @@ export default function Navigation() {
                 <div className={styles.navbarContainer2}>
                     <ul className={styles.menuItems2}>
                         <li className={styles.menuLinks}><Link href='/cart'>Cart</Link></li>
-                        <li className={`${styles.menuLinks} ${styles.cartLink}`}> 0 </li>
+                        <li className={`${styles.menuLinks} ${styles.cartLink}`}> {totalCartItems} </li>
                         <li className={styles.menuLinks}>Login</li>
 
                     </ul>
