@@ -142,7 +142,7 @@ export default function EditUser() {
 	return (
 		
 		<div className={styles.container}>
-			<h1 className={styles.pageTitle}>Let's update some data</h1>
+			<h1 className={styles.pageTitle}>Shall we update some data?</h1>
 			<form className={styles.updateForm} onSubmit={handleSubmit}>
 				<label htmlFor='email'>Email</label>
 				<input placeholder='Enter new email' value={email} name='email' type='email' id='email' onChange={handleEmail}/>
@@ -157,6 +157,7 @@ export default function EditUser() {
 		</div>
 	
 	)
+}
 	// 	<div className="container">
 	// 		<div className="main-body">
 	// 			<nav aria-label="breadcrumb" className="main-breadcrumb">
@@ -333,4 +334,3 @@ export default function EditUser() {
 	// 		</div>
 	// 	</div>
 	// );
-}
