@@ -54,8 +54,9 @@ export default function Login() {
                 if (typeof window !== 'undefined') {
                     console.log('Currently on Client side');
                     localStorage.setItem('jwtToken', response.data.token);
-                    localStorage.setItem('email', response.data.userData.email);
-                    localStorage.setItem('expiration', response.data.userData.exp);
+                    localStorage.setItem('email', response.data.email);
+                    localStorage.setItem('id', response.data.id)
+                    localStorage.setItem('expiration', response.data.exp);
                 } else {
                     console.log('Currently on Server Side');
                 }
