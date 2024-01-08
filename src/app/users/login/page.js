@@ -23,29 +23,55 @@ export default function Login() {
 		setPassword(e.target.value);
 	};
 
-    const handleSubmit = (e) => {
-		e.preventDefault(); // at the beginning of a submit function
+    // const handleSubmit = (e) => {
+	// 	e.preventDefault(); // at the beginning of a submit function
 
-		axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/login`, { email, password })
-			.then(response => {
+	// 	axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/login`, { email, password })
+	// 		.then(response => {
 				
-                localStorage.setItem('jwtToken', response.data.token);
-                localStorage.setItem('email', response.data.userData.email);
-                localStorage.setItem('expiration', response.data.userData.exp);
+    //             localStorage.setItem('jwtToken', response.data.token);
+    //             localStorage.setItem('email', response.data.userData.email);
+    //             localStorage.setItem('id', response.data.userData.id);
+    //             localStorage.setItem('expiration', response.data.userData.exp);
+    //             setAuthToken(response.data.token);
+    //             let decoded = jwtDecode(response.data.token);
+    //             console.log('redirecting')
+	// 			setRedirect(true);
+	// 		})
+	// 		.catch(error => {
+	// 			if (error.response.data.message === 'invalid credentials') {
+	// 				console.log('===> Error in Signup', error.response.data.message);
+	// 				setError(true);
+	// 			}
+	// 		});
+
+	// };
+    const handleSubmit = (e) => {
+        e.preventDefault(); // at the beginning of a submit function
+
+        axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/login`, { email, password })
+            .then(response => {
+                if (typeof window !== 'undefined') {
+                    console.log('Currently on Client side');
+                    localStorage.setItem('jwtToken', response.data.token);
+                    localStorage.setItem('email', response.data.userData.email);
+                    localStorage.setItem('expiration', response.data.userData.exp);
+                } else {
+                    console.log('Currently on Server Side');
+                }
+
                 setAuthToken(response.data.token);
                 let decoded = jwtDecode(response.data.token);
-                console.log('redirecting')
-				setRedirect(true);
-			})
-			.catch(error => {
-				if (error.response.data.message === 'invalid credentials') {
-					console.log('===> Error in Signup', error.response.data.message);
-					setError(true);
-				}
-			});
+                setRedirect(true);
+            })
+            .catch(error => {
+                if (error.response.data.message === 'Email already exists') {
+                    console.log('===> Error in Signup', error.response.data.message);
+                    setError(true);
+                }
+            });
 
-	};
-    
+    };
 
     if (redirect) { 
         console.log('going to users/profile');

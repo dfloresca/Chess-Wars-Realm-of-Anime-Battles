@@ -37,15 +37,48 @@ export default function Profile() {
     //     alert('Session has ended. Please login to continue.');
     //     router.push('/users/login');
     // }
+    // useEffect(() => {
+    //     if (typeof window !== 'undefined') {
+    //         console.log('Currently on Client side');
+    //         setAuthToken(localStorage.getItem('jwtToken'));
+    //         if (localStorage.getItem('jwtToken')) {
+    //             axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/${localStorage.getItem('id')}`)
+    //                 .then((response) => {
+    //                     // data is an object
+    //                     let userData = jwtDecode(localStorage.getItem('jwtToken'));
+    //                     if (userData.email === localStorage.getItem('email')) {
+    //                         setData(response.data.user[0]);
+    //                         setLoading(false);
+    //                     } else {
+    //                         router.push('/users/login');
+    //                     }
+
+    //                 })
+    //                 .catch((error) => {
+    //                     console.log(error);
+    //                     router.push('/users/login');
+    //                 });
+    //         } else {
+    //             router.push('/users/login');
+    //         }
+    //     } else {
+    //         console.log('Currently on Server Side');
+    //     }
+
+
+
+    // }, []);
+
+
 
     useEffect(() => {
         setAuthToken(localStorage.getItem('jwtToken'));
         if (localStorage.getItem('jwtToken')) {
-            //     axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/email/${localStorage.getItem('email')}`, { headers:{
-            //         Authorization:localStorage.getItem('jwtToken')    
-            //     }} )
-            //         .then((response) => {
-            //             // data is an object
+                axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/${localStorage.getItem('id')}`, { headers:{
+                    Authorization:localStorage.getItem('jwtToken')    
+                }} )
+                    .then((response) => {
+                        // data is an object
             let userData = jwtDecode(localStorage.getItem('jwtToken'));
             if (userData.email === localStorage.getItem('email')) {
                 setData(userData);
@@ -53,12 +86,12 @@ export default function Profile() {
             } else {
                 router.push('/users/login');
             }
-            // 
-            // })
-            // .catch((error) => {
-            //     console.log(error);
-            //     router.push('/users/login');
-            // });
+
+            })
+            .catch((error) => {
+                console.log(error);
+                router.push('/users/login');
+            });
         } else {
             console.log('checking for snacks')
             router.push('/users/login');
@@ -70,7 +103,7 @@ export default function Profile() {
     if (isLoading) return <p>Loading...</p>;
     if (!data) return <p>No data shown...</p>;
 
-// new code
+    // new code
     return (
         <div className={styles.profile}>
             <div>
