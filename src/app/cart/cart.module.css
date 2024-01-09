@@ -1,0 +1,44 @@
+.itemWrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.quantityInfo{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.quantityBTN {
+    background-color: rgb(177, 102, 109);
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}   
+
+.quantityBTN:hover {
+    background-color: rgb(177, 102, 109);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.1);
+}
+
+.pageWrapper{
+    padding-top: 65px;
+    max-width: 90%;
+    margin: 0 auto;
+}

@@ -39,3 +39,29 @@
     font-size: 14px;
     font-weight: 600;
 }
+
+.infoWrapper .addToCart {
+    padding: 5px;
+}
+
+.addToCart {
+    background-color: rgb(177, 102, 109);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}   
+
+.addToCart:hover {
+    background-color: rgb(177, 102, 109);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.1);
+}
