@@ -7,6 +7,7 @@ import handleLogout from '@/app/utils/handleLogout';
 import axios from 'axios';
 import setAuthToken from '@/app/utils/setAuthToken';
 import styles from '../../profile.module.css'
+import Link from 'next/link';
 export default function Profile() {
     // state is what the data is representing in realtime
     const router = useRouter();
@@ -35,29 +36,24 @@ export default function Profile() {
             console.log('Currently on Client side');
             setAuthToken(localStorage.getItem('jwtToken'));
             if (localStorage.getItem('jwtToken')) {
-                console.log(`id from local storage ${localStorage.getItem('id')}`)
-                // axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/${localStorage.getItem('id')}`)
-                //     .then((response) => {
-                //         console.log(`response ${response}`)
+                axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/email/${localStorage.getItem('email')}`)
+                    .then((response) => {
                         // data is an object
                         let userData = jwtDecode(localStorage.getItem('jwtToken'));
-                        console.log(`decoded JWT ${userData}`)
-                        // console.log(`response data ${response.user}`)
-                        // if (userData.email === response.user.email) {
-                            // setData(response.user);
-
-					if (userData.email === localStorage.getItem('email')) {
-						setData(userData);
+                        if (userData.email === localStorage.getItem('email')) {
+                            console.log(`userData ${userData}`)
+                            console.log(`data ${response.data.user}`)
+                            setData(userData);
                             setLoading(false);
                         } else {
                             router.push('/users/login');
                         }
 
-                    // })
-                    // .catch((error) => {
-                    //     console.log(error);
-                    //     router.push('/users/login');
-                    // });
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                        router.push('/users/login');
+                    });
             } else {
                 router.push('/users/login');
             }
@@ -68,6 +64,43 @@ export default function Profile() {
 
 
     }, []);
+
+    // useEffect(() => {
+    //     if (typeof window !== 'undefined') {
+    //         console.log('Currently on Client side');
+    //         setAuthToken(localStorage.getItem('jwtToken'));
+    //         console.log(`jwt token ${localStorage.getItem('jwtToken')}`)
+            
+    //         if (localStorage.getItem('jwtToken')) {
+    //             console.log(`id from local storage ${localStorage.getItem('id')}`)
+    //             axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/${localStorage.getItem('id')}`)
+    //                 .then((response) => {
+    //                     console.log(`response ${response}`)
+    //                     // data is an object
+    //                     let userData = jwtDecode(localStorage.getItem('jwtToken'));
+    //                     console.log(`decoded JWT ${userData}`)
+    //                     console.log(`response data ${response.data.userData}`)
+    //                     if (userData.email === localStorage.getItem('email')) {
+    //                         setData(response.data.user);
+    //                         setLoading(false);
+    //                     } else {
+    //                         router.push('/users/login');
+    //                     }
+
+    //                 })
+    //                 .catch((error) => {
+    //                     console.log(error);
+    //                     router.push('/users/login');
+    //                 });
+    //         } else {
+    //             router.push('/users/login');
+    //         }
+    //     } else {
+    //         console.log('Currently on Server Side');
+    //     }
+    // }, []);
+
+
     // console.log(localStorage);
     // const expirationTime = new Date(parseInt(localStorage.getItem('expiration')) * 1000);
     // let currentTime = Date.now();
@@ -153,7 +186,7 @@ export default function Profile() {
                 <p>Name: {data.firstName} {data.lastName}</p>
                 <p>Email: {data.email}</p>
                 <p>User Name: {data.userName}</p>
-
+                <Link href={'/users/edit'}><button>Edit</button></Link>
             </div>
         </div>
     );

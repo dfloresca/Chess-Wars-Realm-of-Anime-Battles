@@ -109,30 +109,65 @@ export default function EditUser() {
 	};
 
 	useEffect(() => {
-		setAuthToken(localStorage.getItem('jwtToken'));
-		if (localStorage.getItem('jwtToken')) {
-			// axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/${localStorage.getItem('id')}`)
-			// 	.then((response) => {
-			// 		// data is an object
-					let userData = jwtDecode(localStorage.getItem('jwtToken'));
+        if (typeof window !== 'undefined') {
+            console.log('Currently on Client side');
+            setAuthToken(localStorage.getItem('jwtToken'));
+            if (localStorage.getItem('jwtToken')) {
+                axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/email/${localStorage.getItem('email')}`)
+                    .then((response) => {
+                        // data is an object
+                        let userData = jwtDecode(localStorage.getItem('jwtToken'));
+                        if (userData.email === localStorage.getItem('email')) {
+                            console.log(`userData ${userData}`)
+                            console.log(`data ${response.data.user}`)
+                            setData(userData);
+                            setLoading(false);
+                        } else {
+                            router.push('/users/login');
+                        }
 
-					if (userData.email === localStorage.getItem('email')) {
-						setData(userData);
-						// setFirstName(userData.firstName);
-						// setLastName(userData.lastName);
-						setEmail(userData.email);
-						setUserName(userData.userName);
-						setLoading(false);
-					}
-				// })
-				// .catch((error) => {
-				// 	console.log(error);
-				// 	router.push('/users/login');
-				// });
-		} else {
-			router.push('/users/login');
-		}
-	}, []);
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                        router.push('/users/login');
+                    });
+            } else {
+                router.push('/users/login');
+            }
+        } else {
+            console.log('Currently on Server Side');
+        }
+
+
+
+    }, []);
+
+	// old code 01/09 1014am
+	// useEffect(() => {
+	// 	setAuthToken(localStorage.getItem('jwtToken'));
+	// 	if (localStorage.getItem('jwtToken')) {
+	// 		// axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/${localStorage.getItem('id')}`)
+	// 		// 	.then((response) => {
+	// 		// 		// data is an object
+	// 				let userData = jwtDecode(localStorage.getItem('jwtToken'));
+
+	// 				if (userData.email === localStorage.getItem('email')) {
+	// 					setData(userData);
+	// 					// setFirstName(userData.firstName);
+	// 					// setLastName(userData.lastName);
+	// 					setEmail(userData.email);
+	// 					setUserName(userData.userName);
+	// 					setLoading(false);
+	// 				}
+	// 			// })
+	// 			// .catch((error) => {
+	// 			// 	console.log(error);
+	// 			// 	router.push('/users/login');
+	// 			// });
+	// 	} else {
+	// 		router.push('/users/login');
+	// 	}
+	// }, []);
 
 	if (isLoading) return <p>Loading...</p>;
 	if (!data) return <p>No data shown...</p>;
