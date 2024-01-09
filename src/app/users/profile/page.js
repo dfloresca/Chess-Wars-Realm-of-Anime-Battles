@@ -86,7 +86,7 @@ export default function Profile() {
 
 // stock code
     return (
-        <div className="container">
+        <div className={styles.container}>
             <div className="main-body">
 
                 <nav aria-label="breadcrumb" className="main-breadcrumb">
