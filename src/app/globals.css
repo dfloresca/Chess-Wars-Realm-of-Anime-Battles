@@ -19,7 +19,7 @@ a {
   text-decoration: none;
 }
 
-button{
+.growBTN{
   background-color: rgb(177, 102, 109);
   color: #fff;
   border: none;
@@ -30,7 +30,7 @@ button{
   transition: all 0.3s ease-in-out;
 }
 
-button:hover{
+.growBTN:hover{
   background-color: rgb(177, 102, 109);
   color: #fff;
   border: none;
@@ -44,4 +44,19 @@ button:hover{
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Satisfy', cursive;
+  padding-bottom: 5px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.form-label{
+  width: 50px;
 }

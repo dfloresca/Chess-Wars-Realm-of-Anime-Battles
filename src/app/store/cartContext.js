@@ -83,6 +83,22 @@ function cartReducer(state, action) {
 export function CartContextProvider({ children }) {
     let [cart, dispatchCartAction] = useReducer(cartReducer, { items: [], totalAmount: 0 });
 
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const savedCart = JSON.parse(localStorage.getItem('cart'));
+            if (savedCart) {
+                dispatchCartAction({ type: 'INITIALIZE', payload: savedCart });
+            }
+        }
+    }, []);
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+    }, [cart]);
+
+
     const handleAddToCart = useCallback((item) => {
         console.log('Adding item:', item);
         dispatchCartAction({ type: 'ADD_ITEM', item: item });
