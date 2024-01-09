@@ -1,4 +1,5 @@
-import styles from "./SectionOne.module.css"
+import styles from "./SectionOne.module.css";
+import Link from "next/link";
 
 
 export default function SectionOne() {
@@ -6,7 +7,7 @@ export default function SectionOne() {
         <div className={styles.heroImg}>
             <div className={styles.heroContent}>
                 <p>Want Custom Garments?</p>
-                <button>Contact Us</button>
+                <Link href="/contact"><button>Contact Us</button></Link>
             </div>
         </div>
     )

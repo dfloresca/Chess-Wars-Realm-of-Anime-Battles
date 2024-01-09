@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from './ProductSection.module.css';
 import ProductSectionAll from './productSectionAll';
-import CarouselWindow from './Carousel';
+import CarouselWindow from './carousel';
 
 
 export default function products() {
