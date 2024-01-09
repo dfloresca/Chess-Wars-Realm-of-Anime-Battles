@@ -92,7 +92,6 @@ export default function EditUser() {
 		// use axios to put to the route
 		// create an object that stores that updated changes
 		const updateUserObject = {
-			email,
 			userName
 		};
 		axios.put(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/${data.id}`, updateUserObject)
