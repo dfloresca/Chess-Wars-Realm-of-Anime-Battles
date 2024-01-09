@@ -179,8 +179,8 @@ export default function EditUser() {
 		<div className={styles.container}>
 			<h1 className={styles.pageTitle}>Shall we update some data?</h1>
 			<form className={styles.updateForm} onSubmit={handleSubmit}>
-				<label htmlFor='email'>Email</label>
-				<input placeholder='Enter new email' value={email} name='email' type='email' id='email' onChange={handleEmail}/>
+				{/* <label htmlFor='email'>Email</label>
+				<input placeholder='Enter new email' value={email} name='email' type='email' id='email' onChange={handleEmail}/> */}
 				<label htmlFor='userName'>User Name</label>
 				<input placeholder='Enter new User Name' value={userName} name='userName' type='text' id='userName' onChange={handleUserName} />
 				<div className={styles.buttons}>
