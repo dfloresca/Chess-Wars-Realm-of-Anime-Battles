@@ -12,6 +12,8 @@ export default function Profile() {
     const router = useRouter();
     const [data, setData] = useState(null);
     const [isLoading, setLoading] = useState(true);
+    // const [activeView, setActiveView] = useState('Profile');
+
 
     if (typeof window !== 'undefined') {
         console.log('Currently on Client side');
@@ -27,6 +29,45 @@ export default function Profile() {
     } else {
         console.log('Currently on Server Side');
     }
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            console.log('Currently on Client side');
+            setAuthToken(localStorage.getItem('jwtToken'));
+            if (localStorage.getItem('jwtToken')) {
+                console.log(`id from local storage ${localStorage.getItem('id')}`)
+                // axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/${localStorage.getItem('id')}`)
+                //     .then((response) => {
+                //         console.log(`response ${response}`)
+                        // data is an object
+                        let userData = jwtDecode(localStorage.getItem('jwtToken'));
+                        console.log(`decoded JWT ${userData}`)
+                        // console.log(`response data ${response.user}`)
+                        // if (userData.email === response.user.email) {
+                            // setData(response.user);
+
+					if (userData.email === localStorage.getItem('email')) {
+						setData(userData);
+                            setLoading(false);
+                        } else {
+                            router.push('/users/login');
+                        }
+
+                    // })
+                    // .catch((error) => {
+                    //     console.log(error);
+                    //     router.push('/users/login');
+                    // });
+            } else {
+                router.push('/users/login');
+            }
+        } else {
+            console.log('Currently on Server Side');
+        }
+
+
+
+    }, []);
     // console.log(localStorage);
     // const expirationTime = new Date(parseInt(localStorage.getItem('expiration')) * 1000);
     // let currentTime = Date.now();
@@ -71,34 +112,35 @@ export default function Profile() {
 
 
 
-    useEffect(() => {
-        setAuthToken(localStorage.getItem('jwtToken'));
-        if (localStorage.getItem('jwtToken')) {
-                axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/${localStorage.getItem('id')}`, { headers:{
-                    Authorization:localStorage.getItem('jwtToken')    
-                }} )
-                    .then((response) => {
-                        // data is an object
-            let userData = jwtDecode(localStorage.getItem('jwtToken'));
-            if (userData.email === localStorage.getItem('email')) {
-                setData(userData);
-                setLoading(false);
-            } else {
-                router.push('/users/login');
-            }
+    // useEffect(() => {
+    //     setAuthToken(localStorage.getItem('jwtToken'));
+    //     if (localStorage.getItem('jwtToken')) {
+    //         let userData = jwtDecode(localStorage.getItem('jwtToken'));
+    //         let userId = userData.id;
+    //             axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/${userId}`, { headers:{
+    //                 Authorization:localStorage.getItem('jwtToken')    
+    //             }} )
+    //                 .then((response) => {
+    //                     // data is an object
+    //         if (userData.email === localStorage.getItem('email')) {
+    //             setData(userData);
+    //             setLoading(false);
+    //         } else {
+    //             router.push('/users/login');
+    //         }
 
-            })
-            .catch((error) => {
-                console.log(error);
-                router.push('/users/login');
-            });
-        } else {
-            console.log('checking for snacks')
-            router.push('/users/login');
-        }
+    //         })
+    //         .catch((error) => {
+    //             console.log(error);
+    //             router.push('/users/login');
+    //         });
+    //     } else {
+    //         console.log('checking for snacks')
+    //         router.push('/users/login');
+    //     }
 
 
-    }, []);
+    // }, []);
 
     if (isLoading) return <p>Loading...</p>;
     if (!data) return <p>No data shown...</p>;

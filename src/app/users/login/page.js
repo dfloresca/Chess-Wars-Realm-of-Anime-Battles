@@ -8,27 +8,28 @@ import jwtDecode from 'jwt-decode';
 
 export default function Login() {
     const router = useRouter();
-	const [redirect, setRedirect] = useState(false);
+    const [redirect, setRedirect] = useState(false);
     const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
-	const [error, setError] = useState(false);
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState(false);
+
 
     const handleEmail = (e) => {
-		// fill in code
-		setEmail(e.target.value);
-	};
+        // fill in code
+        setEmail(e.target.value);
+    };
 
-	const handlePassword = (e) => {
-		// fill in code
-		setPassword(e.target.value);
-	};
+    const handlePassword = (e) => {
+        // fill in code
+        setPassword(e.target.value);
+    };
 
     // const handleSubmit = (e) => {
-	// 	e.preventDefault(); // at the beginning of a submit function
+    // 	e.preventDefault(); // at the beginning of a submit function
 
-	// 	axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/login`, { email, password })
-	// 		.then(response => {
-				
+    // 	axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/login`, { email, password })
+    // 		.then(response => {
+
     //             localStorage.setItem('jwtToken', response.data.token);
     //             localStorage.setItem('email', response.data.userData.email);
     //             localStorage.setItem('id', response.data.userData.id);
@@ -36,16 +37,16 @@ export default function Login() {
     //             setAuthToken(response.data.token);
     //             let decoded = jwtDecode(response.data.token);
     //             console.log('redirecting')
-	// 			setRedirect(true);
-	// 		})
-	// 		.catch(error => {
-	// 			if (error.response.data.message === 'invalid credentials') {
-	// 				console.log('===> Error in Signup', error.response.data.message);
-	// 				setError(true);
-	// 			}
-	// 		});
+    // 			setRedirect(true);
+    // 		})
+    // 		.catch(error => {
+    // 			if (error.response.data.message === 'invalid credentials') {
+    // 				console.log('===> Error in Signup', error.response.data.message);
+    // 				setError(true);
+    // 			}
+    // 		});
 
-	// };
+    // };
     const handleSubmit = (e) => {
         e.preventDefault(); // at the beginning of a submit function
 
@@ -54,9 +55,12 @@ export default function Login() {
                 if (typeof window !== 'undefined') {
                     console.log('Currently on Client side');
                     localStorage.setItem('jwtToken', response.data.token);
-                    localStorage.setItem('email', response.data.email);
-                    localStorage.setItem('id', response.data.id)
-                    localStorage.setItem('expiration', response.data.exp);
+                    console.log(`token data ${response.data.token}`)
+                    localStorage.setItem('email', response.data.userData.email);
+                    console.log(`response email ${response.data.userData.email}`)
+                    localStorage.setItem('id', response.data.userData.id)
+                    console.log(`response id  ${response.data.userData.id}`)
+                    localStorage.setItem('expiration', response.data.userData.exp);
                 } else {
                     console.log('Currently on Server Side');
                 }
@@ -74,27 +78,28 @@ export default function Login() {
 
     };
 
-    if (redirect) { 
+    if (redirect) {
         console.log('going to users/profile');
-        router.push('/users/profile'); }
+        router.push('/users/profile');
+    }
     if (error) {
-		return (
-			<div>
-				<div className="card text-white bg-primary py-5 d-md-down-none" style={{ width: "44%" }}>
-					<div className="card-body text-center">
-						<div>
-							<p>Email already exists</p>
-							<br />
-							<h2>Login</h2>
-							<p>Sign In to your account</p>
-							<a href="/users/login" type="button" className="btn btn-primary active mt-3">Login</a>
-							<span>  </span>
-							<a href="/users/signup" type="button" className="btn btn-secondary active mt-3">Signup</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		);
+        return (
+            <div>
+                <div className="card text-white bg-primary py-5 d-md-down-none" style={{ width: "44%" }}>
+                    <div className="card-body text-center">
+                        <div>
+                            <p>Email already exists</p>
+                            <br />
+                            <h2>Login</h2>
+                            <p>Sign In to your account</p>
+                            <a href="/users/login" type="button" className="btn btn-primary active mt-3">Login</a>
+                            <span>  </span>
+                            <a href="/users/signup" type="button" className="btn btn-secondary active mt-3">Signup</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
     }
 
     return (
@@ -112,11 +117,11 @@ export default function Login() {
                                 <p className="text-muted">Sign In to your account</p>
                                 <div className="input-group mb-3">
                                     <span className="input-group-addon"><i className="fa fa-user"></i></span>
-                                    <input type="text" className="form-control" placeholder="Email" value={email} onChange={handleEmail} required/>
+                                    <input type="text" className="form-control" placeholder="Email" value={email} onChange={handleEmail} required />
                                 </div>
                                 <div className="input-group mb-4">
                                     <span className="input-group-addon"><i className="fa fa-lock"></i></span>
-                                    <input type="password" className="form-control" placeholder="Password" alue={password} onChange={handlePassword} required/>
+                                    <input type="password" className="form-control" placeholder="Password" alue={password} onChange={handlePassword} required />
                                 </div>
                                 <div className="row">
                                     <div className="col-6">
