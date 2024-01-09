@@ -20,7 +20,8 @@
 
 .mainWrapper img{
     box-shadow: 19px 15px 0 0 #b1666d;
-    margin-top: 85px;
+    margin: 85px 25px 0 0;
+    width: 100%
 }
 
 .imgWrapper {
@@ -32,6 +33,7 @@
     max-width: 40%;
     line-height: 1.5;
     font-size: 13px;
+    margin-left: 15px;
 }
 
 .contentBlurb h2{

@@ -2,7 +2,7 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../store/cartContext';
 import withCartContext from '../withCartContext';
-
+import Link from 'next/link';
 
 function CartItem({ item }) {
     const cartCtx = useContext(CartContext);
@@ -61,7 +61,7 @@ function Cart() {
             <div>
                 <p>Subtotal: ${calculateSubtotal()}</p>
                 <p>Shipping Cost: $10</p>
-                <button onClick={handleCheckout}>Checkout</button>
+                <Link href="/checkout"><button onClick={handleCheckout}>Checkout</button></Link>
             </div>
         </div>
     );

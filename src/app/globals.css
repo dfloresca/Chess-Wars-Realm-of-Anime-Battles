@@ -44,4 +44,11 @@ button:hover{
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Satisfy', cursive;
+  padding-bottom: 5px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 }

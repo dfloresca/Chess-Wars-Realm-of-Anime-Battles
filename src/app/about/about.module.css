@@ -2,38 +2,47 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* margin: 25px auto; */
 }
 .pageTitle {
     text-align: center;
     font-weight: bold;
     font-size: 45px;
-    padding: 65px;
+    padding-top: 65px;
 } 
 
 .memberBio {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    align-items: center;
+    gap:15px;
     margin: 25px;
     padding: 30px;
-}
-.memberBio h2 {
-    font-weight: bolder;
-    margin: 10px;
-    flex: 1;
-}
-.memberBio h3 {
-    font-weight: bold;
-    margin: 15px;
-    flex: 1;
-}
-
-.memberBio p {
-    flex: 3;
 }
 
 .memberBio img {
     height: 250px;
     width: 250px;
+}
+
+.memberInfo{
+    line-height:1.6;
+}
+
+.memberBio:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+@media (max-width: 600px) {
+    .memberBio {
+        flex-direction: column;
+    }
+
+    .memberBio:nth-child(even) {
+        flex-direction: column;
+    }
+    .memberBio img {
+        height: 100%;
+        width: 100%;
+    }
 }

@@ -27,7 +27,7 @@ const totalCartItems = cartCtx.items.reduce((total, item) => total + item.quanti
                         <li className={styles.menuLinks}><Link href="/">Home</Link></li>
                         <li className={styles.menuLinks}><Link href="/about">About</Link></li>
                         <li className={styles.menuLinks}><Link href="/contact">Contact</Link></li>
-                        <li className={styles.menuLinks}><Link href="/profile">Profile</Link></li>
+                        <li className={styles.menuLinks}><Link href="/users/profile">Profile</Link></li>
 
                     </ul>
                 </div>
@@ -37,7 +37,7 @@ const totalCartItems = cartCtx.items.reduce((total, item) => total + item.quanti
                     <ul className={styles.menuItems2}>
                         <li className={styles.menuLinks}><Link href='/cart'>Cart</Link></li>
                         <li className={`${styles.menuLinks} ${styles.cartLink}`}> {totalCartItems} </li>
-                        <li className={styles.menuLinks}>Login</li>
+                        <li className={styles.menuLinks}><Link href="/users/login">Login</Link></li>
 
                     </ul>
 
