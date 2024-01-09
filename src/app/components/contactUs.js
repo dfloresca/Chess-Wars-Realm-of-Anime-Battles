@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
-import styles from "../contact/contact.module.css";
+import styles from "../contact.module.css";
 
 export default function ContactUs() {
     const [state, setState] = useState({

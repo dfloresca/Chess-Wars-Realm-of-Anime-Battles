@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import Image from 'next/image';
-import styles from './Navigation.module.css';
+import styles from '../Navigation.module.css';
 import { useContext } from 'react';
 import { CartContext } from '../store/cartContext';
 

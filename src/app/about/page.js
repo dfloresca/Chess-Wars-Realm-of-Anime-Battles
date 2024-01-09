@@ -1,7 +1,7 @@
 "use client"
 // import { useState, useEffect } from "react";
 import Bio from "../components/bio";
-import styles from "./about.module.css";
+import styles from "../about.module.css";
 
 export default function About() {
     // state is what the data is representing in realtime

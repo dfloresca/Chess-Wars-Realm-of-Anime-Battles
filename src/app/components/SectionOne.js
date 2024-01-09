@@ -1,6 +1,5 @@
-import styles from "./SectionOne.module.css";
 import Link from "next/link";
-
+import styles from "../SectionOne.module.css"
 
 export default function SectionOne() {
     return (

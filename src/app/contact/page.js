@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import ContactUs from "../components/contactUs";
 import TechSupport from "../components/techSupport";
 import Inspiration from "../components/inspiration";
-import styles from "./contact.module.css"
+import styles from "../contact.module.css"
 export default function Contact() {
     // state is what the data is representing in realtime
     // const [data, setData] = useState(null);

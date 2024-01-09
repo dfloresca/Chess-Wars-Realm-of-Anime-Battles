@@ -1,7 +1,7 @@
 // ProductSectionAll.js
 import React from 'react';
 import ProductCard from './productCard';
-import styles from './ProductSection.module.css';
+import styles from '../productSection.module.css';
 
 const ProductSectionAll = ({ items }) => {
     return (

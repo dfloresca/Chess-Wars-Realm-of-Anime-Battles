@@ -1,12 +1,10 @@
-nav ul li {
-    text-decoration: none;
-    display: inline-block;
-    margin-right: .3em;
+.profile {
+    border: 2px solid rgb(12, 11, 11);
+    width: 400px;
+    margin: auto;
+    margin-top: 50px;
 }
 
-h1 {
-    color: chartreuse;
-}
 
 .gradient-custom {
     /* fallback for old browsers */
@@ -19,12 +17,6 @@ h1 {
     background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
 }
 
-body {
-    margin-top: 20px;
-    color: #1a202c;
-    text-align: left;
-    background-color: #e2e8f0;
-}
 
 .main-body {
     padding: 15px;
@@ -62,6 +54,31 @@ body {
     padding-right: 8px;
     padding-left: 8px;
 }
+.container {
+    padding: 65px 0 0 0;
+}
+.pageTitle {
+    text-align: center;
+    font-size: 45px;
+}
+.updateForm {
+    display: flex;
+    flex-direction: column;
+    max-width: 90%;
+    padding: 10px;
+    margin: 0 0 50px 0;
+    align-content: center;
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+.buttons button {
+    padding: 5px 15px;
+    margin: 5px 15px;
+}
+
 
 .mb-3,
 .my-3 {
