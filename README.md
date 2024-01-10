@@ -18,6 +18,11 @@ Floresca Threads is a custom garment company that prides itself on customization
 ## WireFrame
 ![WireFrame](/public/wireframe.png)
 ## Screenshots
+![HomePage](/public/homepage.png)
+![Mobile home](/public/Mobileview.png)
+![contact page](/public/ContactUsPage.png)
+![shopping Cart](/public/shoppingCart.png)
+![About Us](/public/aboutUsPage.png)
 
 ## Code Snippets
 <details>
